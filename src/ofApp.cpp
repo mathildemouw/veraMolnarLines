@@ -38,19 +38,12 @@ void ofApp::draw(){
     
     // deletion of horizontal line portions
     ofSetColor(255);
-    for (i =  0; i < 20; i ++) {
-        newi = ofMap(i, 0, 20, 0, ofGetScreenHeight() - offsetFromBottom);
-        ofDrawLine(
-                   // vary where the horizonatal line starts
-                   (ofNoise(i * 0.9) * 200.0) + marginLeft,
-                   newi + 200,
-                   // draw lines all to be about the same length
-                   // TODO: explore varying this line to get closer to Molnár's variances
-                   ((ofNoise(i * 0.9) * 200.0) + marginLeft) + (ofGetScreenWidth() / 2) + ofRandom(20),
-                   newi + 200
-                   );
-    }
+//    for (i =  0; i < 20; i ++) {
+//        newi = ofMap(i, 0, 20, 0, ofGetScreenHeight() - offsetFromBottom);
+    ofDrawRectangle((ofNoise(2 * 0.9) * 200.0) + 70, 300, 300, 300);
     
+//    }
+
     // short angled lines
     // are bisected by a horizonatal line
     // lengths are maximum 3x the width between horizontal lines
