@@ -22,7 +22,7 @@ void ofApp::draw(){
     for (i =  0; i < 20; i ++) {
         newi = ofMap(i, 0, 20, 0, ofGetScreenHeight() - offsetFromBottom);
         // vary where the horizonatal line starts
-        ofDrawLine((ofNoise(i * 0.9) * 200.0) + marginLeft, newi + 200, marginRight, newi + 200);
+        ofDrawLine((ofNoise(i * 0.9) * 200.0) + marginLeft, newi + 200, ofGetScreenWidth() - ((ofNoise(i * 0.9) * 200.0) + marginLeft), newi + 200);
     }
 }
 
