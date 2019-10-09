@@ -39,11 +39,13 @@ void ofApp::draw(){
 
     // deletion of horizontal line portions
     ofSeedRandom(mouseX * 20);
+//    cout <<  mouseX  << endl;
+    // 400 is a pretty good one
     ofSetColor(255);
     
     for (i =  0; i < 20; i ++) {
         newi = ofMap(i, 0, 20, 0, ofGetScreenHeight() - offsetFromBottom);
-      ofDrawRectangle(ofRandom(ofGetScreenWidth()), newi - 3 , ofRandom(20), 20);
+      ofDrawRectangle(ofRandom(ofGetScreenWidth() * 2), newi + 197 , ofRandom(20), 20);
     }
 
     // short angled lines
