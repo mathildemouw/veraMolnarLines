@@ -54,6 +54,25 @@ void ofApp::draw(){
     // lengths are minimum 1/8 the width wetween horizontal lines
     // are going up and to the right at angles either 45 degrees or 25 degrees
     // each horizontal line has one, two three, four, five or 0 short lines lying on it from their centers
+    
+    ofSetColor(0);
+    ofSeedRandom(167);
+     for (i =  0; i < 20; i ++) {
+         newi = ofMap(i, 0, 20, 0, ofGetScreenHeight() - offsetFromBottom);
+         float centerX = (ofNoise(i * 0.9) * 2000.0);
+         float centerY = newi + 200;
+         ofDrawLine(centerX,
+                    centerY,
+                    centerX + 20,
+                    centerY + 20
+                    );
+         
+         ofDrawLine(centerX - 20,
+                    centerY - 20,
+                    centerX,
+                    centerY
+                    );
+     }
 }
 
 //--------------------------------------------------------------
