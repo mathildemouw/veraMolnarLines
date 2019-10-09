@@ -23,6 +23,7 @@ void ofApp::draw(){
     // TODO: explore varying this line to get closer to Molnár's variances
     ofSeedRandom(67);
     ofSetColor(0);
+    
     for (i =  0; i < 20; i ++) {
         newi = ofMap(i, 0, 20, 0, ofGetScreenHeight() - offsetFromBottom);
         ofDrawLine(
@@ -35,14 +36,15 @@ void ofApp::draw(){
                    newi + 200
                    );
     }
-    
+
     // deletion of horizontal line portions
+    ofSeedRandom(mouseX * 20);
     ofSetColor(255);
-//    for (i =  0; i < 20; i ++) {
-//        newi = ofMap(i, 0, 20, 0, ofGetScreenHeight() - offsetFromBottom);
-    ofDrawRectangle((ofNoise(2 * 0.9) * 200.0) + 70, 300, 300, 300);
     
-//    }
+    for (i =  0; i < 20; i ++) {
+        newi = ofMap(i, 0, 20, 0, ofGetScreenHeight() - offsetFromBottom);
+      ofDrawRectangle(ofRandom(ofGetScreenWidth()), newi - 3 , ofRandom(20), 20);
+    }
 
     // short angled lines
     // are bisected by a horizonatal line

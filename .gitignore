@@ -1,3 +1,4 @@
 openFrameworks-Info.plist
 bin/*
+.DS_Store
 veraMolnarLines.xcodeproj/project.xcworkspace/xcuserdata/mathildemouw.xcuserdatad/UserInterfaceState.xcuserstate
