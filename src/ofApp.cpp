@@ -61,16 +61,19 @@ void ofApp::draw(){
          newi = ofMap(i, 0, 20, 0, ofGetScreenHeight() - offsetFromBottom);
          float centerX = (ofNoise(i * 0.9) * 2000.0);
          float centerY = newi + 200;
-         ofDrawLine(centerX,
-                    centerY,
-                    centerX + 20,
-                    centerY + 20
-                    );
+         float slopeY = ofRandom(20);
+         float slopeX = ofRandom(30);
          
-         ofDrawLine(centerX - 20,
-                    centerY - 20,
+         ofDrawLine(centerX + slopeX,
+                    centerY - slopeY,
                     centerX,
                     centerY
+                    );
+         
+         ofDrawLine(centerX,
+                    centerY,
+                    centerX - slopeX,
+                    centerY + slopeY
                     );
      }
 }
