@@ -38,9 +38,7 @@ void ofApp::draw(){
     }
 
     // deletion of horizontal line portions
-    ofSeedRandom(mouseX * 20);
-//    cout <<  mouseX  << endl;
-    // 400 is a pretty good one
+    ofSeedRandom(400 * 20);
     ofSetColor(255);
     
     for (i =  0; i < 20; i ++) {
@@ -49,33 +47,41 @@ void ofApp::draw(){
     }
 
     // short angled lines
-    // are bisected by a horizonatal line
-    // lengths are maximum 3x the width between horizontal lines
-    // lengths are minimum 1/8 the width wetween horizontal lines
-    // are going up and to the right at angles either 45 degrees or 25 degrees
-    // each horizontal line has one, two three, four, five or 0 short lines lying on it from their centers
+    
+    // length of line is mostly controlled by slopeX
+    // angle of line is mostly controlled by slopeY
+
+    // [x] each horizontal line has one, two three, four, five or 0 short lines lying on it from their centers
+    // [] short angled lines always bisect horizontal lines
     
     ofSetColor(0);
-    ofSeedRandom(167);
+    // TODO: play around with  this seed to adjust slopes and frequency of small lines crossing horizontal lines
+    ofSeedRandom(mouseX);
+    cout  <<  mouseX << endl;
+    // 326 is a  pretty good one
+    
      for (i =  0; i < 20; i ++) {
          newi = ofMap(i, 0, 20, 0, ofGetScreenHeight() - offsetFromBottom);
-         float centerX = (ofNoise(i * 0.9) * 2000.0);
+         float j;
+         float centerX = ofRandom(700) + 200;//(ofNoise(i * 0.9) * 2000.0);
          float centerY = newi + 200;
-         float slopeY = ofRandom(20);
-         float slopeX = ofRandom(30);
-         
-         ofDrawLine(centerX + slopeX,
-                    centerY - slopeY,
-                    centerX,
-                    centerY
-                    );
-         
-         ofDrawLine(centerX,
-                    centerY,
-                    centerX - slopeX,
-                    centerY + slopeY
-                    );
-     }
+         float slopeY = ofRandom(25) + 5;
+         float slopeX = ofRandom(40) + 5;
+
+         for (j =  0; j < ofRandom(5); j ++) {
+             ofDrawLine(centerX + slopeX,
+                        centerY - slopeY,
+                        centerX,
+                        centerY
+                        );
+
+             ofDrawLine(centerX,
+                        centerY,
+                        centerX - slopeX,
+                        centerY + slopeY
+                        );
+         };
+     };
 }
 
 //--------------------------------------------------------------
