@@ -13,12 +13,15 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    // first layer: horizontal lines
+
+    //
+    // first layer: HORIZONTAL  LINES
+    //
+
     float i;
     float newi;
-    float offsetFromBottom  = 400;
+    float offsetFromBottom  = 450;
     float marginLeft = 50;
-    float marginRight = ofGetScreenWidth() - marginLeft;
 
     // playing with noise and randomness
     // considerations:
@@ -41,12 +44,15 @@ void ofApp::draw(){
                    (ofNoise(i * 0.9) * 200.0) + marginLeft,
                    newi + 200,
                    // draw lines all to be about the same length
-                   ((ofNoise(i * 0.9) * 200.0) + marginLeft) + (ofGetScreenWidth() / 2) + ofRandom(20),
+                   ((ofNoise(i * 0.9) * 200.0) + marginLeft) + (ofGetScreenWidth() / 3) + ofRandom(20),
                    newi + 200
                    );
     }
 
-    // second layer: deletion of horizontal line portions
+    //
+    // second layer: INTERRUPTIONS
+    //
+
     ofSeedRandom(mouseX);
     // 400 * 20
     ofSetColor(255);
@@ -56,7 +62,10 @@ void ofApp::draw(){
       ofDrawRectangle(ofRandom(ofGetScreenWidth() * 2), newi + 197 , ofRandom(20), 20);
     }
 
-    // last layer: short angled lines
+    //
+    // last layer: SHORT ANGLED LINES
+    //
+
     ofSetColor(0);
     ofSeedRandom(mouseX);
     cout  <<  mouseX << endl;
@@ -66,7 +75,7 @@ void ofApp::draw(){
          newi = ofMap(i, 0, 20, 0, ofGetScreenHeight() - offsetFromBottom);
 
          // centerX controls where on the horizontal it lands
-         float centerX = ofRandom(700) + 200;//(ofNoise(i * 0.9) * 2000.0);
+         float centerX = (ofNoise(i * 0.9) * 937);//2000.0);
          float centerY = newi + 200;
          // angle of line is mostly controlled by slopeY
          float slopeY = ofRandom(25) + 5;
